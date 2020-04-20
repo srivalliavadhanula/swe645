@@ -4,6 +4,6 @@ RUN apt-get update && apt-get install -y elinks && apt-get install -y npm && npm
 RUN mkdir -p /test
 ADD services.sh /test/
 ADD UIModuleSWE645Assignment3 /test/UIModuleSWE645Assignment3
-WORKDIR /test/
+RUN chmod 777 /test/services.sh
 EXPOSE 4200
 ENTRYPOINT ["/test/services.sh"]
