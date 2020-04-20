@@ -1,0 +1,22 @@
+table {
+  font-family: arial, sans-serif;
+  width: 100%;
+  border-top: 2px solid black;
+}
+
+td, th {
+  border: 2px solid black;
+  text-align: left;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+btnCSS{
+  background-color: gray;
+  border: 2px solid black;
+
+}

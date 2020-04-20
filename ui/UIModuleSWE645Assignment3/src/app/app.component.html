@@ -1,0 +1,19 @@
+
+<div>
+    <div *ngIf = "showHomePage == true">
+        <app-home-page (displayPageName) = "displayPageOnEvent($event)"></app-home-page> 
+    </div>
+</div>
+
+<div>
+    <div *ngIf = "showStudentSurveyRecords == true">
+        <app-survey-forms-list (displayPageName) = "displayPageOnEvent($event)"></app-survey-forms-list>
+    </div>
+</div>
+
+<div>
+    <div *ngIf = "showStudentSurveyForm == true">
+        <app-submit-survey (displayPageName) = "displayPageOnEvent($event)"></app-submit-survey> 
+    </div>
+</div>
+
