@@ -1,0 +1,35 @@
+apiVersion: v1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645p3-deployment
+  labels: {app.kubernetes.io/managed-by: graphite-jenkins-gke}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: swe645p3}
+  template:
+    metadata:
+      labels: {app: swe645p3}
+    spec:
+      containers:
+      - name: swe645p3
+        image: swe645aspsr/rest
+        ports:
+        - name: port80
+          containerPort: 8080
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: swe645p3-service
+  labels: {app.kubernetes.io/managed-by: graphite-jenkins-gke}
+spec:
+  ports:
+    - name: tomcat
+      protocol: TCP
+      port: 8180
+      targetPort: 8080
+  selector: {app: swe645p3}
+  type: LoadBalancer
