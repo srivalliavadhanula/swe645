@@ -2,8 +2,7 @@ FROM tomcat
 LABEL maintainer="savadhan@gmu.edu"
 RUN apt-get update && apt-get install -y elinks && apt-get install -y npm && npm install -g @angular/cli && apt-get install -y net-tools
 RUN mkdir -p /test
-ADD services.sh /test/
+WORKDIR /test/UIModuleSWE645Assignment3
 ADD UIModuleSWE645Assignment3 /test/UIModuleSWE645Assignment3
-RUN chmod 777 /test/services.sh
+CMD echo n|npm install && ng serve --host 0.0.0.0
 EXPOSE 4200
-ENTRYPOINT ["/test/services.sh"]
